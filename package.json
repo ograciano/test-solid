@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app",
-    "prepare": "husky install"
+    "start": "node app"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +19,7 @@
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1",
     "git-commit-msg-linter": "^4.4.0",
-    "husky": "^8.0.2",
+    "husky": "^4.3.8",
     "lint-staged": "^13.1.0",
     "typescript": "^4.9.4"
   }
