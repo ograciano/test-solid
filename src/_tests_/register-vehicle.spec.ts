@@ -21,7 +21,8 @@ describe('RegisterVehicle', () => {
       body: {
         name: 'Nissan',
         // model: ' DTX',
-        year: 2020
+        year: 2020,
+        color: 'white'
       }
     }
     const httpResponse = sut.handle(httpRequest)
@@ -34,12 +35,28 @@ describe('RegisterVehicle', () => {
     const httpRequest = {
       body: {
         name: 'Nissan',
-        model: ' DTX'
+        model: ' DTX',
         // year: 2020
+        color: 'white'
       }
     }
     const httpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new Error('error in the: year'))
+  })
+
+  test('is the color does not exist return 400', () => {
+    const sut = new RegisterVehicle()
+    const httpRequest = {
+      body: {
+        name: 'Nissan',
+        model: ' DTX',
+        year: 2020
+        // color: 'white'
+      }
+    }
+    const httpResponse = sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual(new Error('error in the: color'))
   })
 })
