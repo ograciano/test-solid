@@ -13,4 +13,8 @@ export class FoodModel {
   get getPrice (): number {
     return this.food.price
   }
+
+  get getInventory (): number {
+    return this.food.inventory
+  }
 }
