@@ -1,4 +1,5 @@
 import { HttpRequest, HttpResponse } from '../interfaces/http-interface'
+import { MissingFormatParameter } from '../errors/client-error'
 export class RegisterVehicle {
   handle (httpRequest: HttpRequest): HttpResponse {
     const requireProperties = ['name', 'model', 'year', 'color']
@@ -6,7 +7,7 @@ export class RegisterVehicle {
       if (!httpRequest.body[props]) {
         return {
           statusCode: 400,
-          body: new Error(`error in the: ${props}`)
+          body: new MissingFormatParameter(props)
         }
       }
     }
